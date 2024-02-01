@@ -10,7 +10,7 @@ set :repo_url, "https://github.com/Sediqwe/m4.git"
 set :branch, "main"
 set :deploy_to, "/var/www/monsterv4"
 set :keep_releases, 3
-set :migration_command, 'db:create'
+set :migration_command, 'db:migrate'
 set :conditionally_migrate, true
 
 
