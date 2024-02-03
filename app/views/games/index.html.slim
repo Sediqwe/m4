@@ -1,11 +1,54 @@
-p style="color: green" = notice
+.page-header
+  .page-block
+    .row.align-items-center.justify-content-between
+      .col-sm-auto
+        .page-header-title
+          h5.mb-0
+            = paginate @games
+      .col-sm-auto
+        ul.breadcrumb
+          li.breadcrumb-item
+            a[href="../navigation/index.html"]
+              i.ph-duotone.ph-house
+          li.breadcrumb-item
+            a[href="javascript: void(0)"]
+              | Games                
+.row
+  - 
+  - @games.each do |game|
+    .col-xs-12.col-sm-6.col-md-4.col-lg-3
+      a[href="/games/#{game.slug}"]
+        .card.truncate-overflow.text-center.rounded.rounded-3.shadow-lg.p-2 style="border:0px solid black !important" 
+          h6
+            = game.name
+            - if game.uploads.joins(:pictures_attachments).exists?
+              i.bi.bi-card-image.text-danger.m-2.p-1.f-20 title="Vannak bemutató képek"
+              - van = 1
+            - yt = Youtubevideo.where(game_id: game.id).where(ready: true).size
+            - if yt > 0
+              -if van==1
+                - standard = "50px;"
+              - else 
+                - standard = "20px;"
+              i.bi.bi-youtube.text-danger.p-1.f-20 title="Van bemutató videó"
+            |   »
+          = image_tag(game.image.variant(resize_to_fill: [413, 237], crop: "413x237+0+0"), class: 'img-fluid', style: "object-fit: contain; position: relative;")
 
-h1 Games
+          
 
-#games
-  - @games.each do |game1|
-    == render game1
-    p
-      = link_to "Show this game", game_path(game1.slug)
+        
 
-= link_to "New game", new_game_path
+
+
+
+            - if game.done 
+              div class=" bg-primary shadow rounded-2" style="color:black; width:100%" A játékhoz elérhető kézi fordítás is
+.col-sm-auto
+  .page-header-title
+    h5.mb-0
+      = paginate @games
+
+          
+                
+
+    
