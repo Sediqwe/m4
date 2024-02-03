@@ -34,4 +34,23 @@ def autotab
   @current_tab ||= 0
   @current_tab += 1
 end
+def record_attempts(note)
+  @activity = ActivityLog.new
+  @activity.note = note
+  @activity.browser = request.env['HTTP_USER_AGENT']
+  @activity.ip_address = request.env['REMOTE_ADDR']
+  @activity.controller = controller_name 
+  @activity.action = action_name 
+  @activity.save
+end
+def record_activity(note)
+  @activity = ActivityLog.new
+  @activity.user_id = current_user.id
+  @activity.note = note
+  @activity.browser = request.env['HTTP_USER_AGENT']
+  @activity.ip_address = request.env['REMOTE_ADDR']
+  @activity.controller = controller_name 
+  @activity.action = action_name     
+  @activity.save
+end
 end
