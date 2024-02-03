@@ -3,9 +3,9 @@ p style="color: green" = notice
 h1 Games
 
 #games
-  - @games.each do |game|
-    == render game
+  - @games.each do |game1|
+    == render game1
     p
-      = link_to "Show this game", game
+      = link_to "Show this game", game_path(game1.slug)
 
 = link_to "New game", new_game_path

@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user  
     add_flash_types :info, :error, :warning
+    before_action :set_search
+    
+    def set_search        
+        @q = Game.ransack(params[:q])         
+    end
 def current_user
   if session[:user_id]
     @current_user ||= User.find(session[:user_id])

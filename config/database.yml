@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: 'm4'
+  database: 'monster'
   username: 'postgres'
   password: 'postgres'
 
@@ -26,6 +26,6 @@ test:
 
 production:
   <<: *default
-  database: 'm4'
+  database: 'monster'
   username: 'pittyu'
   password: <%= Rails.application.credentials.database[:password] %>

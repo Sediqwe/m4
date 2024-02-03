@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :games
   get "login", to: "games#index"
   get "registration", to: "games#index"
+  get "translater", to: "games#index"
 end
