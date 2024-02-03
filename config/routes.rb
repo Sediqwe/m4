@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "games#index"
   resources :games
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "login", to: "games#index"
+  get "registration", to: "games#index"
 end

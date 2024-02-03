@@ -14,9 +14,10 @@ gem 'gravatar_image_tag'
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-
+gem "stimulus-rails"
+gem "importmap-rails"
 gem "turbo-rails"
-
+gem "jbuilder"
 
 # gem "redis", "~> 4.0"
 # gem "kredis"
@@ -52,4 +53,3 @@ group :test do
 
 end
 
-gem "importmap-rails", "~> 2.0"

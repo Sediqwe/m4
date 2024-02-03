@@ -1,5 +1,5 @@
 $(document).on('turbo:load', function() {
-    alert();
+
     $('#project_oszlop').on('click', function(){
         var id = $(this).attr('data-id');
         var adat = $("#oszlop").val();
