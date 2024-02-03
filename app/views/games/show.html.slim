@@ -118,7 +118,7 @@
                                 a#contact-tab.nav-link.text-uppercase[data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"]
                                     | Hiba jelzés
                         #myTabContent.tab-content
-                            #home.tab-pane.fade class="#{" show active" if @fragment == "" }" role="tabpanel" aria-labelledby="home-tab"
+                            #home.tab-pane.fade.show.active role="tabpanel" aria-labelledby="home-tab"
                                 p.mb-0
                                     #accordionExample.accordion.card
                                         - uploads = @game.uploads.sort_by { |upload| [upload.bad ? 0 : 1, upload.sorrend, upload.created_at] }.reverse

@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user  
     add_flash_types :info, :error, :warning
-    before_action :set_search
+        before_action :set_search
     
-    def set_search        
-        @q = Game.ransack(params[:q])         
-    end
+def set_search
+    require 'nokogiri'
+    require 'open-uri'
+    @q = Game.ransack(params[:q]) 
+    @download = Download.order("created_at DESC").first(10)
+    @uploading = Upload.order("created_at DESC").first(10)
+    @rss = Gemorss.order(idouj3: :DESC).first(10)
+end
 def current_user
   if session[:user_id]
     @current_user ||= User.find(session[:user_id])
