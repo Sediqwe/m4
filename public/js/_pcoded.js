@@ -328,7 +328,7 @@ for (var t = 0; t < tc.length; t++) {
 // authentication logo
 var tc = document.querySelectorAll('.auth-main.v2 .img-brand');
 for (var t = 0; t < tc.length; t++) {
-  tc[t].setAttribute('src', '../assets/images/logo-white.svg');
+  tc[t].setAttribute('src', 'logo-white.svg');
 }
 
 // =======================================================
@@ -480,6 +480,7 @@ function layout_rtl_change(value) {
 }
 
 function layout_change(layout) {
+  
   var control = document.querySelector('.pct-offcanvas');
   document.getElementsByTagName('body')[0].setAttribute('data-pc-theme', layout);
 
@@ -490,10 +491,10 @@ function layout_change(layout) {
   if (layout == 'dark') {
     dark_flag = true;
     if (document.querySelector('.invoice-logo')) {
-      document.querySelector('.invoice-logo').setAttribute('src', '../assets/images/logo-white.svg');
+      document.querySelector('.invoice-logo').setAttribute('src', 'logo-white.svg');
     }
     if (document.querySelector('.auth-form .card-footer a img')) {
-      document.querySelector('.auth-form .card-footer a img').setAttribute('src', '../assets/images/logo-white-sm.svg');
+      document.querySelector('.auth-form .card-footer a img').setAttribute('src', 'logo-white-sm.svg');
     }
     var control = document.querySelector('.theme-layout .btn.active');
     if (control) {
@@ -503,10 +504,10 @@ function layout_change(layout) {
   } else {
     dark_flag = false;
     if (document.querySelector('.invoice-logo')) {
-      document.querySelector('.invoice-logo').setAttribute('src', '../assets/images/logo-dark.svg');
+      document.querySelector('.invoice-logo').setAttribute('src', 'logo-dark.svg');
     }
     if (document.querySelector('.auth-form .card-footer a img')) {
-      document.querySelector('.auth-form .card-footer a img').setAttribute('src', '../assets/images/logo-dark-sm.svg');
+      document.querySelector('.auth-form .card-footer a img').setAttribute('src', 'logo-dark-sm.svg');
     }
     var control = document.querySelector('.theme-layout .btn.active');
     if (control) {
@@ -520,8 +521,8 @@ function change_box_container(value) {
   if (document.querySelector('.pc-content')) {
     if (value == 'true') {
       document.querySelector('.pc-content').classList.add('container');
-      document.querySelector('.footer-wrapper').classList.add('container');
-      document.querySelector('.footer-wrapper').classList.remove('container-fluid');
+      //document.querySelector('.footer-wrapper').classList.add('container');
+      //document.querySelector('.footer-wrapper').classList.remove('container-fluid');
 
       var control = document.querySelector('.theme-container .btn.active');
       if (control) {
@@ -530,8 +531,8 @@ function change_box_container(value) {
       }
     } else {
       document.querySelector('.pc-content').classList.remove('container');
-      document.querySelector('.footer-wrapper').classList.remove('container');
-      document.querySelector('.footer-wrapper').classList.add('container-fluid');
+      //document.querySelector('.footer-wrapper').classList.remove('container');
+      //document.querySelector('.footer-wrapper').classList.add('container-fluid');
       var control = document.querySelector('.theme-container .btn.active');
       if (control) {
         document.querySelector('.theme-container .btn.active').classList.remove('active');

@@ -13,11 +13,12 @@ html
   body[data-pc-preset="preset-10" data-pc-sidebar-theme="dark" data-pc-sidebar-caption="true" data-pc-direction="ltr"  data-pc-theme="dark"]
     = render "shared/sidebar"
     = render "shared/header"
+    .loader-bg
     .pc-container
       .pc-content
         = yield
         
-    //= render "shared/footer"
+    = render "shared/footer"
     script src="/js/popper.min.js"
     script src="/js/simplebar.min.js"
     script src="/js/bootstrap.min.js"
