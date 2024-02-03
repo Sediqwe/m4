@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
+ *= require actiontext.css
  *= require style.css
  *= require style-preset.css
  *= require fonts/phosphor/duotone/style.css
@@ -189,7 +189,6 @@ h1.tag {
     width: 100%;
     /* Példa: 16:9 arány beállítása (szélesség: 100%, magasság: 0, padding-bottom: 56.25%) */
     height: 800px;
-   
     overflow: hidden;
   }
 

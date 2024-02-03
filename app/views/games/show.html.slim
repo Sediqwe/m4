@@ -379,24 +379,16 @@
                             #message.tab-pane.fade class="#{" show active" if @fragment == "message" }" role="tabpanel" aria-labelledby="message-tab"
                                 
                                 - if current_user
-                                    = simple_form_for @gmessage, url: gmessages_path, local: true do |f|
+                                
+                                    = simple_form_for @gmessage do |form|
+                                        div class="field bg-primary"
+                                        = form.input :title, label: 'Cím', input_html: { class: 'form-control' }
+                                        
+                                        = form.rich_text_area :desc,label: "Szöveg", class:"form-control",  input_html: { 'rows': '10' } 
+                                        
                                         -game_id = Game.friendly.find(params[:id])
-                                        = f.input :title, label: 'Cím', input_html: { class: 'form-control' }
-                                        = f.input :game_id, as: :hidden, input_html: { value: game_id.id }
-                                        = f.input :senduser_id, as: :hidden, input_html: { id: 'tabAzonositoMezo' }
-                                        |
-                                            <script>
-                                            tinymce.init({
-                                                selector: 'textarea',
-                                                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-                                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                                                skin: "oxide-dark",
-                                                content_css: "dark"
-                                            });
-                                            </script>
-                                        textarea id="description" name="description" style="padding:10px;"
-                                        .form-actions
-                                            = f.button :submit, "Beküldés" , class: "btn btn-primary"
+                                        = form.input :game_id, as: :hidden, input_html: { value: game_id.id }
+                                        = form.button :submit, "Beküldés" , class: "btn btn-primary mt-2"
                                 - else 
                                     h2 A hozzászóláshoz jelentkezz be!
                                 
@@ -420,7 +412,7 @@
                                                     h5.card-title.text-white
                                                         = gmes.title
                                                     p
-                                                        = gmes.description.html_safe
+                                                        = gmes.desc
                                                     
                                                 .card-footer.bg-dark
                                                     hr

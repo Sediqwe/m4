@@ -71,7 +71,7 @@ nav.pc-sidebar
                     b
                       = truncate(gamename.upcase, length:20, separator: "...")
                     br
-                    - szoveg = truncate(strip_tags(message.description.html_safe), length: 300, separator: '...')
+                    - szoveg = truncate(message.desc.to_s, length: 300, separator: '...')
                     = szoveg
                     br
                     b
