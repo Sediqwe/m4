@@ -3,9 +3,9 @@ hu:
   views:
     pagination:
       first: "&laquo; Első"
-      last: "Utolsó &raquo;"
+      last: "Utol. &raquo;"
       previous: "&lsaquo; Előző"
-      next: "Következő &rsaquo;"
+      next: "Köv. &rsaquo;"
       truncate: "&hellip;"
   activerecord:
     errors:
@@ -14,7 +14,7 @@ hu:
           attributes:
             image:
               content_type_invalid:
-              - Hibás fájl típus! Csak JPG, JPEG, PNG a megengedett formátum.
+              - Hibás fájl típus! Csak JPG, JPEG, PNG, WEBP a megengedett formátum.
       messages:
         record_invalid: 
         restrict_dependent_destroy:
@@ -34,7 +34,7 @@ hu:
     - jan.
     - febr.
     - márc.
-    - "ápr."
+    - ápr.
     - máj.
     - jún.
     - júl.

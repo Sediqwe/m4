@@ -9,14 +9,13 @@ header.pc-header
             a#mobile-collapse.pc-head-link.ms-0[href="#"]
               i.ph-duotone.ph-list
           = search_form_for @q, url: games_path do |f|
-            = f.text_field :name_cont, placeholder: "Gyors kereső...", class: "form-control mt-2", style: "width:300px !important; height:40px !important"
+            = f.text_field :name_cont, placeholder: "Gyors kereső...", class: "form-control mt-2", style: "width:230px !important; height:40px !important"
 
               
       .ms-auto
         ul.list-unstyled
-            = render "shared/headertheme"
+          
             - if current_user
-              
               = render "shared/notification"
               = render "shared/profile"              
             - else
