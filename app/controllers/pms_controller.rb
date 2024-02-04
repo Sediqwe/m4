@@ -1,6 +1,6 @@
 class PmsController < ApplicationController
   before_action :set_pm, only: %i[ show edit update destroy ]
-
+  before_action :authorized?
   # GET /pms or /pms.json
   def index
     @pms = Pm.all

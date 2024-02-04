@@ -1,6 +1,6 @@
 class GmessagesController < ApplicationController
   before_action :set_gmessage, only: %i[ show edit update destroy ]
-
+  
   # GET /gmessages or /gmessages.json
   def index
     @gmessages = Gmessage.all

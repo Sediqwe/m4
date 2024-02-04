@@ -2,10 +2,10 @@
 hu:
   views:
     pagination:
-      first: "&laquo; Első"
-      last: "Utol. &raquo;"
-      previous: "&lsaquo; Előző"
-      next: "Köv. &rsaquo;"
+      first: "Első"
+      last: "Utolsó"
+      previous: "Előző"
+      next: "Következő"
       truncate: "&hellip;"
   activerecord:
     errors:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_04_102204) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -490,6 +490,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_102204) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "user_id", default: 0
+    t.boolean "pm", default: false
     t.index ["slug"], name: "index_translaters_on_slug", unique: true
   end
 
@@ -556,6 +557,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_102204) do
     t.string "tam4"
     t.bigint "translater_id"
     t.text "recovery"
+    t.boolean "pm", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

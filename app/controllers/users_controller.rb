@@ -63,6 +63,7 @@ class UsersController < ApplicationController
         Translater.where(user_id: current_user.id).update(user_id: 0)
         upd = Translater.find(users_params[:translater_id])
         upd.update(user_id: @user.id)
+        upd.update(pm: users_params[:pm])
         upd.save        
         format.html { redirect_to settings_path(id: @user), notice: "A felhasználói adatok módosítva" }        
       else
@@ -113,6 +114,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def users_params
-      params.require(:user).permit(:name, :email, :password, :alias, :moderator, :photo, :desc, :translater_id)
+      params.require(:user).permit(:name, :email, :password, :alias, :moderator, :photo, :desc, :translater_id, :pm)
     end
 end

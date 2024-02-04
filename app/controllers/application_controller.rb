@@ -22,7 +22,7 @@ end
 def authorized?
   return if current_user.present?
   flash[:error] = 'Előbb lépj be!.'
-  redirect_to login_signin_url
+  redirect_to login_path
 end
 def admin?
   return if current_user.admin?

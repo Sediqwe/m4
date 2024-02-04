@@ -254,8 +254,10 @@
                                                                                     .row
                                                                                         .col-4
                                                                                             h6 Készítők:
-                                                                                        .col-8  
+                                                                                        .col-6  
                                                                                             h6 Támogatás:
+                                                                                        .col-2
+                                                                                            h6 Üzenet:
                                                                                     h6.m-b-4
                                                                                         - adatok = Uploadtranslater.where(upload_id: t)
                                                                                         - adatok.each_with_index do |dorka,index2|
@@ -263,15 +265,22 @@
                                                                                                 .col-4.text
                                                                                                     h5.border-bottom.p-b-4
                                                                                                         = link_to dorka.translater.translater_name, translater_path(dorka.translater)
+                                                                                                        
 
                                                                                                 - mikka = User.find_by(translater_id: dorka.translater)
                                                                                                 - if mikka
-                                                                                                    .col-8
+                                                                                                    .col-6
                                                                                                         h5.border-bottom.m-b-4
                                                                                                             -supportlist = Supportlist.where(user_id: mikka)
                                                                                                             - supportlist.each do |support|
                                                                                                                 = link_to support.link,class:"m-1 f-20   btn-sm", target: "_blank" do |link|
                                                                                                                     = raw(support.iconbootstrap)
+
+                                                                                                - if dorka.translater.pm && current_user
+                                                                                                    .col-2.text
+                                                                                                        h5.border-bottom.m-b-4
+                                                                                                            = link_to  new_pm_path(translater: mikka.translater.slug) do 
+                                                                                                                i.fab.fa-facebook-messenger.f-20
                                                                                                 br 
 
 
@@ -406,6 +415,8 @@
                                                         span.badge.bg-info.m-2
                                                             | Fordító
                                                     
+                                                    - if gmes.user.translater.pm && current_user
+                                                        =link_to "Pirvát üzenet", new_pm_path, class:"btn btn-sm btn-link"
                                                             
                                                             
                                                 .card-body

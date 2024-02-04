@@ -16,10 +16,11 @@
           li.breadcrumb-item
             | Új Üzenetek                
 .row
+  - tran = Translater.where(slug: params[:translater]).first
+  - if tran.present? && tran.pm
+    == render "form", pm: @pm
+  -else
+    h1 Ez a fordító nem fogad privát üzeneteket.
 
-  == render "form", pm: @pm
-
-  br
-
-  div
-    = link_to "Back to pms", pms_path
+  
+  
