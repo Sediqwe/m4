@@ -1,0 +1,24 @@
+.page-header
+  .page-block
+    .row.align-items-center.justify-content-between
+      .col-sm-auto
+        .page-header-title
+          h5.mb-0
+            
+      .col-sm-auto
+        ul.breadcrumb
+          li.breadcrumb-item
+            =link_to root_path
+              i.ph-duotone.ph-house
+          li.breadcrumb-item
+            |Üzenetek  
+                         
+.row
+
+  #pms
+    - @pms.each do |pm|
+      == render pm
+      p
+        = link_to "Show this pm", pm , class: "btn btn-primary"
+
+  = link_to "New pm", new_pm_path , class: "btn btn-primary"

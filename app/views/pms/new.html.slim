@@ -1,0 +1,25 @@
+.page-header
+  .page-block
+    .row.align-items-center.justify-content-between
+      .col-sm-auto
+        .page-header-title
+          h5.mb-0
+            
+      .col-sm-auto
+        ul.breadcrumb
+          li.breadcrumb-item
+            =link_to root_path
+              i.ph-duotone.ph-house
+          li.breadcrumb-item
+            =link_to pms_path
+              | Üzenetek  
+          li.breadcrumb-item
+            | Új Üzenetek                
+.row
+
+  == render "form", pm: @pm
+
+  br
+
+  div
+    = link_to "Back to pms", pms_path

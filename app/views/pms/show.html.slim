@@ -1,0 +1,23 @@
+.page-header
+  .page-block
+    .row.align-items-center.justify-content-between
+      .col-sm-auto
+        .page-header-title
+          h5.mb-0
+            
+      .col-sm-auto
+        ul.breadcrumb
+          li.breadcrumb-item
+            a[href="../navigation/index.html"]
+              i.ph-duotone.ph-house
+          li.breadcrumb-item
+            a[href="javascript: void(0)"]
+              | Üzenetek                
+.row
+
+  == render @pm
+
+  div
+    =< link_to "Vissza az üzenetekhez", pms_path, class: "btn btn-primary"
+
+    = button_to "PM törlése", @pm, method: :delete , class: "btn btn-danger"

@@ -19,6 +19,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "jbuilder"
 gem 'zip'
+
 # gem "redis", "~> 4.0"
 # gem "kredis"
 gem "bcrypt", "~> 3.1.7"

@@ -14,14 +14,16 @@
  *= require style.css
  *= require style-preset.css
  *= require fonts/phosphor/duotone/style.css
+ *= require fonts/tabler-icons.min.css
  *= require fonts/material.css
  *= require fonts/fontawesome.css
  *= require fonts/feather.css
  *= require fonts/tabler-icons.min.css
  *= require_self
 
-
+*= require actiontext
  */
+ 
  .tag {
     display: inline-block;
     border-radius: 3px;
