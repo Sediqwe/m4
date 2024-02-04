@@ -19,6 +19,7 @@
               .media-body.ms-3
                 |  Az üzenetek elküldése lehetőség, nem kötelező! Sértegetés, fenyegetőzés a felhasználó törlésével jár. 
           .form-group
+              =f.hidden_field :sender_id, value: params[:translater]
               = f.input :subject, placeholder: "Cím", input_html: { class: "form-control" }, label: false
           .form-group
             

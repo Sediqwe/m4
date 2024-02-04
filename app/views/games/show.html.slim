@@ -6,9 +6,11 @@
                 .card-body
                     h1.gameshowh1
                         =@game.name
-                        | (#
-                        = @game.id
-                        | )
+                        -if current_user.present?
+                            -if current_user.admin?
+                                | (#
+                                = @game.id
+                                | )
         .row.g-0 
             .col-1
             .col-xl-5.tulkep 
@@ -276,7 +278,7 @@
                                                                                                                 = link_to support.link,class:"m-1 f-20   btn-sm", target: "_blank" do |link|
                                                                                                                     = raw(support.iconbootstrap)
 
-                                                                                                - if dorka.translater.pm && current_user
+                                                                                                - if dorka.translater.pm && current_user && current_user.translater.id != dorka.translater.id
                                                                                                     .col-2.text
                                                                                                         h5.border-bottom.m-b-4
                                                                                                             = link_to  new_pm_path(translater: mikka.translater.slug) do 
@@ -353,7 +355,7 @@
                                                                                         .alert.alert-primary.d-flex.align-items-center[role="alert"]
                                                                                             .row
                                                                                                 .col-xl-2.col-sm-12
-                                                                                                    i.ph-duotone.ph-warning.ph.m-2
+                                                                                                    i.ph-duotone.ph-warning.ph.m-2.f-30
                                                                                                 .col-xl-10.col-sm-12
                                                                                                     div.warning-container
                                                                                                         h4
@@ -414,8 +416,8 @@
                                                     - if gmes.user.moderator?
                                                         span.badge.bg-info.m-2
                                                             | Fordító
-                                                    
-                                                    - if gmes.user.translater.pm && current_user
+                                                   
+                                                    - if gmes.user.translater.pm && current_user && gmes.user.translater.id != current_user.translater.id
                                                         =link_to "Pirvát üzenet", new_pm_path, class:"btn btn-sm btn-link"
                                                             
                                                             

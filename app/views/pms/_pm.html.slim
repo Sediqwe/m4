@@ -1,22 +1,46 @@
-div id="#{dom_id pm}"
-  p
-    strong Subject:
-    =< pm.subject
-  p
-    strong Desc:
-    = pm.desc
-  p
-    strong User:
-    =< pm.user
-  p
-    strong Sender:
-    =< pm.sender
-  p
-    strong Read:
-    =< pm.read
-  p
-    strong Torolt:
-    =< pm.torolt
-  p
-    strong Warn:
-    =< pm.warn
+.col-xl-6.col-md-6
+  .card.table-card
+    .card-header
+      h5
+        | Top Contacts
+    .contact-scroll[style="height:380px;position:relative;"]
+      .card-body.p-0
+        .table-responsive
+          table.table.table-hover.m-b-0
+            thead
+              tr
+                th
+                  | Küldő
+                th
+                  | Cím
+                th
+                  | Üzenet eleje
+                th
+                  | Címzett 
+                th 
+                  | Törölve?
+                th 
+                  | Olvasva?
+
+                th 
+                  | Jelentve?
+            tbody
+              tr id="#{dom_id pm}"
+                td
+                  =< pm.user
+                td 
+                  = pm.subject  
+                td
+                  = pm.desc
+                td
+                  =< pm.user
+                td
+                  =< pm.sender
+                td 
+                  =< pm.torolt
+                td
+                  =< pm.read
+                td 
+                    =< pm.warn
+                div 
+  

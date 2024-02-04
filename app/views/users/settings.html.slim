@@ -64,20 +64,21 @@
             .col-lg-6.col-sm-7
               = f.password_field :password, class: "form-control", autocomplete: "new-password", autofill: false 
               
-          .form-group.row
-            label.col-form-label.col-sm-3.text-sm-end
-              
-            .col-lg-6.col-sm-7
-              .form-check.form-switch.custom-switch-v1.mb-2
-                -if @user.translater.pm
-                  =f.check_box :pm, type: "checkbox", class: "form-check-input input-success", checked: "checked"
-                -else 
-                  =f.check_box :pm, type: "checkbox", class: "form-check-input input-success"
-
-                label.form-check-label[for="customswitchv2-3"]
-                  | Pm fogadás
+          
                 
           - if @user.translater_id?
+            .form-group.row
+              label.col-form-label.col-sm-3.text-sm-end
+                
+              .col-lg-6.col-sm-7
+                .form-check.form-switch.custom-switch-v1.mb-2
+                  -if @user.translater.pm
+                    =f.check_box :pm, type: "checkbox", class: "form-check-input input-success", checked: "checked"
+                  -else 
+                    =f.check_box :pm, type: "checkbox", class: "form-check-input input-success"
+
+                  label.form-check-label[for="customswitchv2-3"]
+                    | Pm fogadás
             .form-group.row
               label.col-form-label.col-sm-3.text-sm-end
                 | Kép 
