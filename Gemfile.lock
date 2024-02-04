@@ -328,6 +328,7 @@ DEPENDENCIES
   rails (~> 7.0.8)
   ransack
   rmagick
+  ruby-vips (~> 2.2.0)
   selenium-webdriver
   simple_form
   slim-rails
