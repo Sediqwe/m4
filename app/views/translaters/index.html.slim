@@ -1,0 +1,46 @@
+table#pc-dt-simple.table.table-hover.datatable-table
+  thead
+    tr
+      th[style="width: 27.496757457846954%;"]
+        | NAME
+      th[style="width: 26.329442282749678%;"]
+        | FORDÍTÓ
+      th[style="width: 14.656290531776914%;"]
+        | JÁTÉKOK
+      th[style="width: 6.48508430609598%;"]
+        | UTOLSÓ FELTÖLTÉS
+      
+  tbody
+    - @translaters.each do |translater|
+        tr[data-index="0"]
+        td
+            .d-inline-block.align-middle
+                - if translater.user.present? && translater.user.photo.present?
+                    = image_tag translater.user.photo, class: "img-radius align-top m-r-15", style: "width: 50px;"
+                - else
+                    = image_tag "avatar-2.jpg", class: "img-radius align-top m-r-15", style: "width: 50px;"
+                
+                    
+                
+            .d-inline-block
+                h6.m-b-0
+                    = translater.translater_name
+               
+                 
+        td
+            -if translater.user
+                -if translater.user.moderator?
+                    | Fordító
+                -if translater.user.admin?
+                    | Admin / Fordító
+            - else 
+                | Már nem aktív
+        td
+            = Uploadtranslater.where(translater_id: translater).size
+        td
+            - adat = Uploadtranslater.where(translater_id: translater).order(id: :ASC).first
+            - if adat
+                = adat.upload.created_at
+       
+        
+        

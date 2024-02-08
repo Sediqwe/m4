@@ -6,7 +6,13 @@ module UsersHelper
           image_tag(user.gravatar_image(size: 200), class: "#{tag} wid-50 rounded-circle", alt: "user-image")
         end
       end
-      
+      def translater_image_tag(user, tag)
+        if user.user.photo.present?
+          image_tag(user.photo, class: "#{tag} wid-50  rounded-circle", alt: "user-image")
+        else
+          image_tag(user.gravatar_image(size: 200), class: "#{tag} wid-50 rounded-circle", alt: "user-image")
+        end
+      end  
       
       
       
