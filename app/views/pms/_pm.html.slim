@@ -2,7 +2,7 @@
   .card.table-card
     .card-header
       h5
-        | Top Contacts
+        | Elküldött üzenetek
     .contact-scroll[style="height:380px;position:relative;"]
       .card-body.p-0
         .table-responsive
@@ -27,20 +27,19 @@
             tbody
               tr id="#{dom_id pm}"
                 td
-                  =< pm.user
+                  -name = User.find(pm.user)
+                  =< name.alias || name.name
                 td 
                   = pm.subject  
                 td
                   = pm.desc
                 td
-                  =< pm.user
-                td
-                  =< pm.sender
+                  =< Translater.find(pm.sender).translater_name
                 td 
-                  =< pm.torolt
+                  =< pm.torolt?
                 td
-                  =< pm.read
+                  =< pm.read?
                 td 
-                    =< pm.warn
+                    =< pm.warn?
                 div 
   

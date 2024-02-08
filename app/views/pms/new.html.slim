@@ -17,7 +17,9 @@
             | Új Üzenetek                
 .row
   - tran = Translater.where(slug: params[:translater]).first
-  - if tran.present? && tran.pm
+  h1 
+    
+  - if tran.present? && tran.user.pm
     == render "form", pm: @pm
   -else
     h1 Ez a fordító nem fogad privát üzeneteket.

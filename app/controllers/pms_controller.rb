@@ -22,7 +22,8 @@ class PmsController < ApplicationController
   # POST /pms or /pms.json
   def create
     @pm = Pm.new(pm_params)
-
+    @pm.user = current_user.id
+    @pm.sender = pm_params[:sender]
     respond_to do |format|
       if @pm.save
         format.html { redirect_to pm_url(@pm), notice: "Pm was successfully created." }

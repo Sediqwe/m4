@@ -43,6 +43,8 @@
             label.col-form-label.col-sm-3.text-sm-end
               | Felhasználó:
             .col-lg-6.col-sm-7
+              h1
+                = @user.id
               = f.text_field :name , readonly: true, class: "form-control", placeholder: "Felhasználó"
           .form-group.row
             label.col-form-label.col-sm-3.text-sm-end
@@ -72,7 +74,8 @@
                 
               .col-lg-6.col-sm-7
                 .form-check.form-switch.custom-switch-v1.mb-2
-                  -if @user.translater.pm
+                  -if @user.pm
+                    
                     =f.check_box :pm, type: "checkbox", class: "form-check-input input-success", checked: "checked"
                   -else 
                     =f.check_box :pm, type: "checkbox", class: "form-check-input input-success"

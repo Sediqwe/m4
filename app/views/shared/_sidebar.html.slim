@@ -62,20 +62,20 @@ nav.pc-sidebar
               | Hozzászólások
             span.pc-arrow
               i[data-feather="chevron-right"]
-          ul.pc-submenu
+          ul.pc-submenu style=""
           
             - Gmessage.order(id: :DESC).first(10).each do |message|
               = link_to game_path(message.game_id) , class: "pc-link" do |link|
                   - gamename = Game.find(message.game_id).name
-                  li.pc-item.bg-primary.rounded.rounded-3.p-2 title="#{gamename.upcase}" style="border-top: 1px solid green;"
+                  li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 title="#{gamename.upcase}" style="width : 200px; border-top: 1px solid green; overflow: hidden !important;"
                     b
                       = truncate(gamename.upcase, length:20, separator: "...")
                     br
                     - szoveg = truncate(message.desc.to_s, length: 300, separator: '...')
-                    = szoveg
+                    = ActionView::Base.full_sanitizer.sanitize(szoveg)
                     br
                     b
-                      |#{message.user.alias || message.user.name}
+                      |   #{message.user.alias || message.user.name}
                     br                     
                     |(
                     |#{message.created_at.strftime("%Y-%m-%d %H:%M") }
@@ -169,7 +169,7 @@ nav.pc-sidebar
                   =t.created_at.strftime("%Y-%m-%d %H:%M") 
                   |)             
         
-            
+      /      
         li.pc-item.pc-caption
           label
             | Other
@@ -236,12 +236,12 @@ nav.pc-sidebar
                     li.pc-item
                       a.pc-link[href="#!"]
                         | Level 4.2
-        li.pc-item
+        /li.pc-item
           a.pc-link[href="../other/sample-page.html"]
             span.pc-micon
               i.ph-duotone.ph-desktop
             span.pc-mtext
               | Sample page
-      .card.nav-action-card
+      /.card.nav-action-card
         .card-body
           |  Alsó kocka 

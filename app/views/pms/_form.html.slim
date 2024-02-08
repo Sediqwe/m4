@@ -19,7 +19,8 @@
               .media-body.ms-3
                 |  Az üzenetek elküldése lehetőség, nem kötelező! Sértegetés, fenyegetőzés a felhasználó törlésével jár. 
           .form-group
-              =f.hidden_field :sender_id, value: params[:translater]
+              - translater =  Translater.find_by(slug: params[:translater])
+              =f.hidden_field :sender, value: User.find_by(translater: translater.id).id
               = f.input :subject, placeholder: "Cím", input_html: { class: "form-control" }, label: false
           .form-group
             
