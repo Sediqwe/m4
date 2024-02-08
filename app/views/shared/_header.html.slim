@@ -16,7 +16,7 @@ header.pc-header
         ul.list-unstyled
           
             - if current_user
-              = render "shared/notification"
+              /= render "shared/notification"
               = render "shared/profile"              
             - else
               = render "shared/login"

@@ -256,9 +256,9 @@
                                                                                     .row
                                                                                         .col-4
                                                                                             h6 Készítők:
-                                                                                        .col-6  
+                                                                                        .col-5  
                                                                                             h6 Támogatás:
-                                                                                        .col-2
+                                                                                        /.col-3
                                                                                             h6 Üzenet:
                                                                                     h6.m-b-4
                                                                                         - adatok = Uploadtranslater.where(upload_id: t)
@@ -271,7 +271,7 @@
 
                                                                                                 - mikka = User.find_by(translater_id: dorka.translater)
                                                                                                 - if mikka
-                                                                                                    .col-6
+                                                                                                    .col-5
                                                                                                         h5.border-bottom.m-b-4
                                                                                                             -supportlist = Supportlist.where(user_id: mikka)
                                                                                                             - supportlist.each do |support|
@@ -503,7 +503,8 @@
 
                             #contact.tab-pane.fade[role="tabpanel" aria-labelledby="contact-tab"]
                                 p.mb-0
-                                    | Folyamatban
+                                    - if current_user
+
                                     //| There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
                             #youtube.tab-pane.fade[role="tabpanel" aria-labelledby="youtube-tab"]
                                 p.mb-4
