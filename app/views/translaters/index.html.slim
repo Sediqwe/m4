@@ -18,7 +18,7 @@ table#pc-dt-simple.table.table-hover.datatable-table
                 - if translater.user.present?
                     - if translater.user.photo.present?
                         = image_tag translater.user.photo, class: "img-radius align-top m-r-15", style: "width: 50px;"
-                    - else 
+                    /- else 
                         = image_tag(translater.user.gravatar_image(size: 200), class: "#{tag} wid-50 rounded-circle", alt: "user-image")
                 - else
                     = image_tag "avatar-2.jpg", class: "img-radius align-top m-r-15", style: "width: 50px;"
