@@ -46,7 +46,7 @@ table#pc-dt-simple.table.table-hover.datatable-table
         td
             = Uploadtranslater.where(translater_id: translater).size
         td
-            - adat = Uploadtranslater.where(translater_id: translater).order(id: :ASC).first
+            - adat = Uploadtranslater.where(translater_id: translater).order(id: :DESC).first
             - if adat
                 = adat.upload.created_at
        
