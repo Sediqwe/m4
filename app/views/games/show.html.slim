@@ -278,7 +278,7 @@
                                                                                                                 = link_to support.link,class:"m-1 f-20   btn-sm", target: "_blank" do |link|
                                                                                                                     = raw(support.iconbootstrap)
 
-                                                                                                - if dorka.translater.user.pm && current_user && current_user != dorka.translater
+                                                                                                /- if dorka.translater.user.pm && current_user && current_user != dorka.translater
                                                                                                     .col-2.text
                                                                                                         h5.border-bottom.m-b-4
                                                                                                             = link_to  new_pm_path(translater: mikka.translater.slug) do 
@@ -417,7 +417,7 @@
                                                         span.badge.bg-info.m-2
                                                             | Fordító
                                                    
-                                                    - if gmes.user.pm && current_user && gmes.user.translater != current_user.translater
+                                                    /- if gmes.user.pm && current_user && gmes.user.translater != current_user.translater
                                                         =link_to "Pirvát üzenet", new_pm_path, class:"btn btn-sm btn-link"
                                                             
                                                             
