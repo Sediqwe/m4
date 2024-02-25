@@ -248,22 +248,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
     t.index ["link"], name: "index_gemorsses_on_link", unique: true
   end
 
-  create_table "gmessages", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "title"
-    t.bigint "game_id", null: false
-    t.bigint "gmessage_id"
-    t.boolean "warn"
-    t.bigint "senduser_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "description"
-    t.index ["game_id"], name: "index_gmessages_on_game_id"
-    t.index ["gmessage_id"], name: "index_gmessages_on_gmessage_id"
-    t.index ["senduser_id"], name: "index_gmessages_on_senduser_id"
-    t.index ["user_id"], name: "index_gmessages_on_user_id"
-  end
-
   create_table "hopps", force: :cascade do |t|
     t.text "link"
     t.string "gen"
@@ -489,7 +473,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.integer "user_id", default: 0
     t.boolean "pm", default: false
     t.index ["slug"], name: "index_translaters_on_slug", unique: true
   end
@@ -515,7 +498,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
     t.boolean "mauto", default: false
     t.boolean "multiuser", default: false
     t.boolean "demo", default: false
-    t.integer "sorrend", default: 0
     t.index ["game_id"], name: "index_uploads_on_game_id"
     t.index ["platform_id"], name: "index_uploads_on_platform_id"
     t.index ["program_id"], name: "index_uploads_on_program_id"
@@ -558,8 +540,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
     t.bigint "translater_id"
     t.text "recovery"
     t.boolean "pm", default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
     t.index ["translater_id"], name: "index_users_on_translater_id"
   end
@@ -584,9 +564,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
     t.datetime "updated_at", null: false
     t.boolean "ready", default: true
     t.bigint "user_id", default: 1, null: false
-    t.boolean "discord", default: false
     t.index ["game_id"], name: "index_youtubevideos_on_game_id"
-    t.index ["link"], name: "index_youtubevideos_on_link", unique: true
     t.index ["user_id"], name: "index_youtubevideos_on_user_id"
   end
 
@@ -609,10 +587,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_04_132439) do
   add_foreign_key "downloads", "uploads"
   add_foreign_key "forums", "users"
   add_foreign_key "games", "users"
-  add_foreign_key "gmessages", "games"
-  add_foreign_key "gmessages", "gmessages"
-  add_foreign_key "gmessages", "users"
-  add_foreign_key "gmessages", "users", column: "senduser_id"
   add_foreign_key "lemurs", "projects"
   add_foreign_key "news", "users"
   add_foreign_key "projects", "users"

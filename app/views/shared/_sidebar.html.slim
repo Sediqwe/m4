@@ -64,7 +64,7 @@ nav.pc-sidebar
               i[data-feather="chevron-right"]
           ul.pc-submenu style=""
           
-            - Gmessage.order(id: :DESC).first(10).each do |message|
+            /- Gmessage.order(id: :DESC).first(10).each do |message|
               = link_to game_path(message.game_id) , class: "pc-link" do |link|
                   - gamename = Game.find(message.game_id).name
                   li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 title="#{gamename.upcase}" style="width : 200px; border-top: 1px solid green; overflow: hidden !important;"
