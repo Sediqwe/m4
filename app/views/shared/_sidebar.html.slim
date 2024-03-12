@@ -64,12 +64,13 @@ nav.pc-sidebar
               i[data-feather="chevron-right"]
           ul.pc-submenu style=""
           
-            /- Gmessage.order(id: :DESC).first(10).each do |message|
+            - Gmessage.order(id: :DESC).first(10).each do |message|
               = link_to game_path(message.game_id) , class: "pc-link" do |link|
                   - gamename = Game.find(message.game_id).name
-                  li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 title="#{gamename.upcase}" style="width : 200px; border-top: 1px solid green; overflow: hidden !important;"
-                    b
-                      = truncate(gamename.upcase, length:20, separator: "...")
+                  li.pc-item.p-2.border-start.border-secondary style=" width : 200px;" title="#{gamename.upcase}" 
+                    .bg-secondary.text-black style=" width: 200px; "
+                      b
+                        = truncate(gamename.upcase, length:20, separator: "...")
                     br
                     - szoveg = truncate(message.desc.to_s, length: 300, separator: '...')
                     = ActionView::Base.full_sanitizer.sanitize(szoveg)
@@ -94,9 +95,10 @@ nav.pc-sidebar
               = link_to rss.link , class: "pc-link" do |link|
                   - path = URI.parse(rss.link.html_safe).path
                   - pathname = Pathname.new(path)
-                  li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 title="#{pathname.basename.to_s.gsub("-"," ").upcase}" style="width : 200px; border-top: 1px solid green;"
-                    b
-                      = truncate(pathname.basename.to_s.gsub("-"," ").upcase, length:20, separator: "...")
+                  li.pc-item.p-2.border-start.border-secondary style=" width : 200px;" title="#{pathname.basename.to_s.gsub("-"," ").upcase}"
+                    .bg-secondary.text-black style=" width: 200px; "
+                      b
+                        = truncate(pathname.basename.to_s.gsub("-"," ").upcase, length:20, separator: "...")
                     br
                     - szoveg = truncate(strip_tags(rss.desc), length: 100, separator: '...')
                     = szoveg
@@ -122,9 +124,10 @@ nav.pc-sidebar
           
             -@uploading.each do |t|
               = link_to game_path(t.game), class: "pc-link" do |link|
-                li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 style="width : 200px; border-top: 1px solid green;"
-                
-                  =t.game.name
+                li.pc-item.p-2.border-start.border-secondary style=" width : 200px; "
+                  .bg-secondary.text-black style=" width: 200px; "
+                    b
+                      =t.game.name
                   br
                   |(
                   =t.created_at.strftime("%Y-%m-%d %H:%M") 
@@ -142,8 +145,10 @@ nav.pc-sidebar
           
             -@download.each do |t|
               = link_to  game_path(t.game), class: "pc-link" do |link|
-                li.pc-item.border.border-white.tag.tag-typescript.border-1.rounded.rounded-3.p-2 style=" width : 200px;   border-top: 1px solid green;"
-                  =t.game.name
+                li.pc-item.p-2.border-start.border-secondary style=" width : 200px; "
+                  .bg-secondary.text-black style=" width: 200px; "
+                    b
+                      =t.game.name
                   br
                   |  (
                   = statisztika(t.game.id,t.id)
