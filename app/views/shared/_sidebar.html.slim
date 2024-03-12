@@ -69,7 +69,7 @@ nav.pc-sidebar
                   - gamename = Game.find(message.game_id).name
                   li.pc-item.p-2.border-start.border-secondary style=" width : 200px;" title="#{gamename.upcase}" 
                     .bg-secondary.text-black style=" width: 200px; "
-                      b
+                      b.m-2
                         = truncate(gamename.upcase, length:20, separator: "...")
                     br
                     - szoveg = truncate(message.desc.to_s, length: 300, separator: '...')
@@ -97,7 +97,7 @@ nav.pc-sidebar
                   - pathname = Pathname.new(path)
                   li.pc-item.p-2.border-start.border-secondary style=" width : 200px;" title="#{pathname.basename.to_s.gsub("-"," ").upcase}"
                     .bg-secondary.text-black style=" width: 200px; "
-                      b
+                      b.m-2
                         = truncate(pathname.basename.to_s.gsub("-"," ").upcase, length:20, separator: "...")
                     br
                     - szoveg = truncate(strip_tags(rss.desc), length: 100, separator: '...')
@@ -126,7 +126,7 @@ nav.pc-sidebar
               = link_to game_path(t.game), class: "pc-link" do |link|
                 li.pc-item.p-2.border-start.border-secondary style=" width : 200px; "
                   .bg-secondary.text-black style=" width: 200px; "
-                    b
+                    b.m-2
                       =t.game.name
                   br
                   |(
@@ -147,7 +147,7 @@ nav.pc-sidebar
               = link_to  game_path(t.game), class: "pc-link" do |link|
                 li.pc-item.p-2.border-start.border-secondary style=" width : 200px; "
                   .bg-secondary.text-black style=" width: 200px; "
-                    b
+                    b.m-2
                       =t.game.name
                   br
                   |  (
